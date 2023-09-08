@@ -9,6 +9,7 @@ import (
 	"netcat/funcs"
 	"os"
 	"os/signal"
+	"strings"
 	"sync"
 	"time"
 )
@@ -33,18 +34,41 @@ func genID() string {
 	return fmt.Sprintf("user%d", useridseq)
 }
 
+func changeUsername(u *User) {
+	conn := u.Connection
+	timeoutDuration := 30 * time.Second
+	conn.SetReadDeadline(time.Now().Add(timeoutDuration))
+	defer conn.SetReadDeadline(time.Time{})
+	conn.Write([]byte("Enter Your new name: "))
+	bufReader := bufio.NewReader(conn)
+	bytes, err := bufReader.ReadBytes('\n')
+	if err != nil {
+		log.Println("Error reading user input:", err)
+		return
+	}
+
+	u.Name = string(bytes[:len(bytes)-1])
+	if strings.TrimSpace(u.Name) == "" {
+		log.Println("Empty username. Closing connection.")
+		u.Connection.Write([]byte("Please Input a username"))
+		return
+	}
+}
+
 func main() {
 	PORT := 8989
 	TYPE := "tcp"
 
-	if len(os.Args) > 1 {
+	if len(os.Args) == 2 {
 		PORT, _ = funcs.Atoi(os.Args[1])
 		_, err := funcs.Atoi(os.Args[1])
 
 		if err != nil {
-			log.Fatalf("[USAGE]: ./server.go $PORT\n")
+			log.Fatalf("[USAGE]: ./TCPchat $PORT\n")
 		}
 
+	} else if len(os.Args) > 2 {
+		log.Fatalf("[USAGE]: ./TCPchat $PORT\n")
 	}
 
 	listenAddr := fmt.Sprintf("%s:%d", funcs.GetLocalIP(), PORT)
@@ -89,6 +113,11 @@ func writetextlog(conn net.Conn) {
 }
 
 func handleConnection(conn net.Conn) {
+	if len(userpool) == 10 {
+		conn.Write([]byte("User limit reached, try again later"))
+		conn.Close()
+		return
+	}
 	defer conn.Close()
 
 	// Create a unique user ID for this connection
@@ -108,13 +137,6 @@ func handleConnection(conn net.Conn) {
 	mu.Lock()
 	userpool = append(userpool, user)
 	mu.Unlock()
-
-	defer func() {
-		// Remove the user from the user pool and broadcast their departure
-		mu.Lock()
-		removeUser(user)
-		mu.Unlock()
-	}()
 
 	// Handle user messages
 	messageCh := make(chan string, 1)
@@ -159,8 +181,9 @@ func authenticateUser(user *User) bool {
 	}
 
 	user.Name = string(bytes[:len(bytes)-1])
-	if user.Name == "" {
+	if strings.TrimSpace(user.Name) == "" {
 		log.Println("Empty username. Closing connection.")
+		user.Connection.Write([]byte("Please Input a username"))
 		return false
 	}
 
@@ -173,7 +196,6 @@ func authenticateUser(user *User) bool {
 func readUserInput(user *User, messageCh chan<- string) {
 	conn := user.Connection
 	bufReader := bufio.NewReader(conn)
-
 	for {
 		message, err := bufReader.ReadString('\n')
 		if err != nil {
@@ -185,7 +207,30 @@ func readUserInput(user *User, messageCh chan<- string) {
 				return
 			}
 		}
-		messageCh <- message
+		if len(message) > 255 {
+			user.Connection.Write([]byte("Exceeded word limit (255 chars only)"))
+			continue
+		}
+		if strings.TrimSpace(message) == "/nu" {
+			olduname := user.Name
+			changeUsername(user)
+			message = fmt.Sprintf("%s changed his username to %s", olduname, user.Name)
+		} else if strings.TrimSpace(message) == "/leave" {
+			removeUser(*user)
+			continue
+		} else if strings.TrimSpace(message) == "/help" {
+			helpmessage := `
+			implemented commands:
+				/leave : leave the chat
+				/nu : change username
+			`
+			user.Connection.Write([]byte(helpmessage))
+			continue
+		}
+		if strings.TrimSpace(message) != "" {
+			messageCh <- message
+		}
+
 	}
 }
 
