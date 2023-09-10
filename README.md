@@ -31,7 +31,7 @@ NET-MAJLES replicates the data exchange capabilities of the original NetCat comm
 
 - **Username Deadline**: A client has 30 seconds to enter a username when joining, otherwise the server disconnects
 
-## implemented chat commands
+## Implemented Chat Commands
 
 1. `/l` : leave the chat
 2. `/nu` : change username
@@ -67,7 +67,7 @@ You can run the NET-MAJLES program in various ways:
 - This will create an executable named `TCPChat`, which can be executed with the port number as argument.
 - or without were by default, it will listen on port 8989.
 
-```build.sh```
+```build.sh```\
 ```./TCPChat $port```
 
 ## Project Structure
