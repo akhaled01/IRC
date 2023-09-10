@@ -29,7 +29,7 @@ NET-MAJLES replicates the data exchange capabilities of the original NetCat comm
 
 - **Port Specification**: If no port is specified, the default port is set to 8989. Otherwise, the program provides a usage message for guidance.
 
-- **username deadline**: A client has 30 seconds to enter a username when joining, otherwise the server disconnects
+- **Username Deadline**: A client has 30 seconds to enter a username when joining, otherwise the server disconnects
 
 ## Project structure
 
