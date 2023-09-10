@@ -31,28 +31,11 @@ NET-MAJLES replicates the data exchange capabilities of the original NetCat comm
 
 - **Username Deadline**: A client has 30 seconds to enter a username when joining, otherwise the server disconnects
 
-## Project Structure
+## implemented chat commands
 
-- Written in Go
-- Utilizes TCP communication
-- Incorporates Go-routines for concurrency
-- Uses channels and Mutexes for synchronization
-- Supports a maximum of 10 concurrent connections
-- Adheres to best coding practices
-- Includes a test file for unit testing
-- Handles errors effectively on both server and client sides
-
-## Used Packages
-
-- io
-- log
-- os
-- fmt
-- net
-- sync
-- time
-- bufio
-- strings
+1. `/l` : leave the chat
+2. `/nu` : change username
+3. `/h` : help to show implemented commands
 
 ## Getting Started
 
@@ -87,14 +70,31 @@ You can run the NET-MAJLES program in various ways:
 ```build.sh```
 ```./TCPChat $port```
 
+## Project Structure
+
+- Written in Go
+- Utilizes TCP communication
+- Incorporates Go-routines for concurrency
+- Uses channels and Mutexes for synchronization
+- Supports a maximum of 10 concurrent connections
+- Adheres to best coding practices
+- Includes a test file for unit testing
+- Handles errors effectively on both server and client sides
+
+## Used Packages
+
+- io
+- log
+- os
+- fmt
+- net
+- sync
+- time
+- bufio
+- strings
+
 ## Authors
 
 - emahfood
 - amali
 - akhaled
-
-## implemented chat commands
-
-1. `/l` : leave the chat
-2. `/nu` : change username
-3. `/h` : help to show implemented commands
