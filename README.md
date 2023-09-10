@@ -1,15 +1,5 @@
 # NET-MAJLES: A Go-Based Server-Client Chat Application (inspired by net-cat)
 
-`
-     .--.
-    |o_o |
-    |:_/ |
-   //   \ \
-  (|     | )
- /'\_   _/ \
- \___)=(____\/
-`
-
 Welcome to NET-MAJLES, a versatile Server-Client chat application built using Go. This project aims to recreate the functionality of the famous NetCat tool, but with an enhanced Server-Client architecture. NET-MAJLES allows you to run in server mode, listening on a specified port for incoming connections, and accepts up to client connections on a specified port, enabling seamless communication between multiple clients.
 
 ## Project Objectives
