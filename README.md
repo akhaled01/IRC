@@ -31,7 +31,7 @@ NET-MAJLES replicates the data exchange capabilities of the original NetCat comm
 
 - **Username Deadline**: A client has 30 seconds to enter a username when joining, otherwise the server disconnects
 
-## Project structure
+## Project Structure
 
 - Written in Go
 - Utilizes TCP communication
@@ -42,7 +42,7 @@ NET-MAJLES replicates the data exchange capabilities of the original NetCat comm
 - Includes a test file for unit testing
 - Handles errors effectively on both server and client sides
 
-## used Packages
+## Used Packages
 
 - io
 - log
