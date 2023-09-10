@@ -92,6 +92,7 @@ You can run the NET-MAJLES program in various ways:
 - time
 - bufio
 - strings
+- testing
 
 ## Authors
 
