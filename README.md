@@ -1,13 +1,8 @@
 # NET-MAJLES: A Go-Based Server-Client Chat Application (inspired by net-cat)
-
-     .--.
-    |o_o |
-    |:_/ |
-   //   \ \
-  (|     | )
- /'\_   _/ \
- \___)=(____\/
-
+\
+![netcat](https://seeklogo.com/images/N/netcat-logo-94046E9699-seeklogo.com.png)
+\
+\
 Welcome to NET-MAJLES, a versatile Server-Client chat application built using Go. This project aims to recreate the functionality of the famous NetCat tool, but with an enhanced Server-Client architecture. NET-MAJLES allows you to run in server mode, listening on a specified port for incoming connections, and accepts up to client connections on a specified port, enabling seamless communication between multiple clients.
 
 ## Project Objectives
@@ -34,30 +29,13 @@ NET-MAJLES replicates the data exchange capabilities of the original NetCat comm
 
 - **Port Specification**: If no port is specified, the default port is set to 8989. Otherwise, the program provides a usage message for guidance.
 
-- **username deadline**: A client has 30 seconds to enter a username when joining, otherwise the server disconnects
+- **Username Deadline**: A client has 30 seconds to enter a username when joining, otherwise the server disconnects
 
-## Project structure
+## Implemented Chat Commands
 
-- Written in Go
-- Utilizes TCP communication
-- Incorporates Go-routines for concurrency
-- Uses channels and Mutexes for synchronization
-- Supports a maximum of 10 concurrent connections
-- Adheres to best coding practices
-- Includes a test file for unit testing
-- Handles errors effectively on both server and client sides
-
-## used Packages
-
-- io
-- log
-- os
-- fmt
-- net
-- sync
-- time
-- bufio
-- strings
+1. `/l` : leave the chat
+2. `/nu` : change username
+3. `/h` : help to show implemented commands
 
 ## Getting Started
 
@@ -89,17 +67,35 @@ You can run the NET-MAJLES program in various ways:
 - This will create an executable named `TCPChat`, which can be executed with the port number as argument.
 - or without were by default, it will listen on port 8989.
 
-```build.sh```
+```build.sh```\
 ```./TCPChat $port```
+
+## Project Structure
+
+- Written in Go
+- Utilizes TCP communication
+- Incorporates Go-routines for concurrency
+- Uses channels and Mutexes for synchronization
+- Supports a maximum of 10 concurrent connections
+- Adheres to best coding practices
+- Includes a test file for unit testing
+- Handles errors effectively on both server and client sides
+
+## Used Packages
+
+- io
+- log
+- os
+- fmt
+- net
+- sync
+- time
+- bufio
+- strings
+- testing
 
 ## Authors
 
 - emahfood
 - amali
 - akhaled
-
-## implemented chat commands
-
-1. `/l` : leave the chat
-2. `/nu` : change username
-3. `/h` : help to show implemented commands
