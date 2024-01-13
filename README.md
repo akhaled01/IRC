@@ -44,7 +44,7 @@ Follow these steps to set up and run the NET-MAJLES project:
 
 ### Clone the Project
 
-```git clone https://github.com/amali01/net-cat```
+```git clone https://github.com/emahfoodh/net-cat```
 
 ### Navigate to the Project Directory
 
