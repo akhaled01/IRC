@@ -3,8 +3,7 @@
 </p>
 
 <h2>About The Project</h2>
-Welcome to NET-MAJLES (our own version of net-cat), a versatile Server-Client chat application built using Go.
-This project aims to recreate the functionality of the famous NetCat tool, but with an enhanced Server-Client architecture. NET-MAJLES allows you to run in server mode, listening on a specified port for incoming connections, and accepts up to client connections on a specified port, enabling seamless communication between multiple clients.
+Welcome to NET-MAJLES, a Server-Client chat app built with Go—our take on the classic NetCat tool. NET-MAJLES lets you act as a server, listening on a specific port for incoming connections, and can handle connections from multiple clients. It's a straightforward solution for seamless communication across a network. Whether you're coordinating teamwork or exploring secure data exchange, NET-MAJLES simplifies the process. Dive into efficient Server-Client interactions with our user-friendly application. Happy chatting!
 
 ## Project Objectives
 
@@ -34,9 +33,9 @@ NET-MAJLES replicates the data exchange capabilities of the original NetCat comm
 
 ## Implemented Chat Commands
 
-1. `/l` : leave the chat
-2. `/nu` : change username
-3. `/h` : help to show implemented commands
+1. `/h` : help to show implemented command
+2. `/nu`: change username 
+3. `/l` : leave the chat
 
 ## Getting Started
 
@@ -44,7 +43,7 @@ Follow these steps to set up and run the NET-MAJLES project:
 
 ### Clone the Project
 
-```git clone https://github.com/emahfoodh/net-cat```
+```git clone https://github.com/amali01/net-cat```
 
 ### Navigate to the Project Directory
 
