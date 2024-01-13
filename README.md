@@ -97,6 +97,6 @@ You can run the NET-MAJLES program in various ways:
 
 ## Authors
 
-- emahfoodh
-- amali01
-- akhaled01
+- emahfoodh (Eman Mahfoodh)
+- amali01 (Amjad Ali)
+- akhaled01 (Abdulrahman Idrees)
