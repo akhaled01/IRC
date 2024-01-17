@@ -49,7 +49,7 @@ Follow these steps to set up and run the NET-MAJLES project:
 
 ## Usage
 
-You can run the NET-MAJLES program in various ways:
+You can run the IRC program in various ways:
 
 1. **Building Server**: Run the program without specifying a port to start it in server mode. By default, it will listen on port 8989.
 
