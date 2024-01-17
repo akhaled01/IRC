@@ -1,13 +1,11 @@
-<p align="center">
-    <img src="./netcat-logo.com.png" alt="logo" hight="350px" width="350px" />
-</p>
+# IRC (net-cat)
 
 <h2>About The Project</h2>
-Welcome to NET-MAJLES, a Server-Client chat app built with Go—our take on the classic NetCat tool. NET-MAJLES lets you act as a server, listening on a specific port for incoming connections, and can handle connections from multiple clients. It's a straightforward solution for seamless communication across a network. Whether you're coordinating teamwork or exploring secure data exchange, NET-MAJLES simplifies the process. Dive into efficient Server-Client interactions with our user-friendly application. Happy chatting!
+IRC is a Server-Client chat app built with Golang that replicates net-cat's server-client Architecture. It lets you act as a server, listening on a specific port for incoming connections, and can handle connections from multiple clients. It's a straightforward solution for seamless communication across a network. Happy chatting!
 
 ## Project Objectives
 
-NET-MAJLES replicates the data exchange capabilities of the original NetCat command by introducing a group chat system with the following features:
+IRC replicates the data exchange capabilities of the original NetCat command by introducing a group chat system with the following features:
 
 - **TCP Communication**: Establish TCP connections between the server and multiple clients, enabling one-to-many communication.
 
