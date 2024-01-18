@@ -1,7 +1,7 @@
 # IRC (net-cat)
 
 <h2>About The Project</h2>
-IRC is a Server-Client chat app built with Golang that replicates net-cat's server-client Architecture. It lets you act as a server, listening on a specific port for incoming connections, and can handle connections from multiple clients. It's a straightforward solution for seamless communication across a network. Happy chatting!
+IRC is a shell-based chat app built with pure Golang that aims replicates net-cat's server-client Architecture. It lets you act as a server, listening on a specific port for incoming connections, and can handle connections from multiple clients. It's a straightforward solution for seamless communication across a network. Happy chatting!
 
 ## Project Objectives
 
